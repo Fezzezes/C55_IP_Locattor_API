@@ -9,6 +9,7 @@
         protected function executeAction() {
             
             //retourne deja en json encoded
+            //concat pour avoir http://ip-api.com/json/XXXXXX(addressip)
             $result = file_get_contents("http://ip-api.com/json/".$_POST["ipAdress"]);
 
             return compact("result");

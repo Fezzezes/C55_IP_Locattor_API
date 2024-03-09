@@ -31,17 +31,18 @@ const animateLock = (resolve, reject) => {
 
 const lookupIp = ipAddress => {
     
-
+        //création d'un nouveau formulaire
         let formData = new FormData();
+        //append dans le formulaire
         formData.append("ipAdress", ipAddress);
-        
+        //get l'echo de ajax.php, en lui envoyant le formulaire en parametre
         fetch("ajax.php", {
             method: "post",
             body : formData
         })
         .then(response => response.json())
         .then(data => {
-
+            //injecte le résultat dans le html
             console.log(data["city"]);
             document.querySelector(".result-container").innerText = data["city"];
         })
